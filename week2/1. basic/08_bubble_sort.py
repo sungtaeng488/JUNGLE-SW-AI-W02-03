@@ -60,9 +60,7 @@ def bubble_sort_optimized(arr):
         swapped = False  # 교환 발생 여부
         for j in range(n-1):
                     if arr[j]>arr[j+1] and swapped == False:
-                        t = arr[j]
-                        arr[j] = arr[j+1]
-                        arr[j+1] = t
+                        arr[j], arr[j + 1] = arr[j + 1], arr[j]
                         swapped = True
         if swapped == False:
              break
