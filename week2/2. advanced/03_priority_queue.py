@@ -36,20 +36,20 @@ def process_emergency_room(patients):
     Returns:
         처리된 환자 순서
     """
-   
     heap = []
-
     for i in range(len(patients)):
-        heapq.heappush(heap, (patients[i][1], patients[i][0]))
-
-    processed = []
-
-    while len(heap) != 0:
-        priority, name = heapq.heappop(heap)
-        print(f"처리: {name} (우선순위: {priority})")
+        heapq.heappush(heap,(patients[i][1] , patients[i][0]))
+    #이제 제거 해야지 힙큐니깐 최소 값 부터 제거댐
+    processed =[]
+    while len(heap) !=0:
+        pri , name = heapq.heappop(heap)
+        print(f"처리:{name} (우선 순위:{pri})")
         processed.append(name)
-
     return processed
+
+
+
+
 
         
     ## 힙에서 우선순위가 가장 높은 환자 꺼내기

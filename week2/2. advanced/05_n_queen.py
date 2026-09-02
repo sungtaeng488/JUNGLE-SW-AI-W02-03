@@ -65,9 +65,7 @@ def n_queens(n: int) -> int:
         if row == n:
             count +=1
             return
-
         
-
         # 현재 row에서 열 하나씩 시도
         for i in range(n):
             possible = True

@@ -22,83 +22,29 @@
 - 정렬된 두 부분을 병합
 """
 
-def merge(arr, left, mid, right):
-    """
-    두 개의 정렬된 부분 배열을 병합하는 함수
-    
-    Args:
-        arr: 원본 배열
-        left: 왼쪽 부분의 시작 인덱스
-        mid: 왼쪽 부분의 끝 인덱스
-        right: 오른쪽 부분의 끝 인덱스
-    """
-    left_arr = arr[left:mid + 1]
-    right_arr = arr[mid + 1:right + 1]
-    i = 0
-    j = 0
-
-    # 원본 arr에서 값을 넣을 위치
-    k = left
-
-    # 두 배열을 비교하면서 작은 값을 arr에 넣기
-    while i < len(left_arr) and j < len(right_arr):
-        if left_arr[i] <= right_arr[j]:
-            arr[k] = left_arr[i]
-            i += 1
-        else:
-            arr[k] = right_arr[j]
-            j += 1
-
-        k += 1
-
-    # left_arr에 남은 값 복사
-    while i < len(left_arr):
-        arr[k] = left_arr[i]
-        i += 1
-        k += 1
-
-    # right_arr에 남은 값 복사
-    while j < len(right_arr):
-        arr[k] = right_arr[j]
-        j += 1
-        k += 1
-
-def merge_sort_helper(arr, left, right):
-    """
-    머지 정렬 재귀 함수
-    
-    Args:
-        arr: 배열
-        left: 시작 인덱스
-        right: 끝 인덱스
-    """
-    # TODO: base case - left가 right보다 작을 때만 정렬
-    ## 중간 지점 계산
-    ## 왼쪽 절반 재귀 정렬
-    ## 오른쪽 절반 재귀 정렬
-    ## 정렬된 두 절반을 병합
-    if left <right:
-        mid = (left + right)//2
-        merge_sort_helper(arr, left, mid)
-        merge_sort_helper(arr, mid + 1, right)
-
-        merge(arr,left,mid,right)
-    
-
 def merge_sort(arr):
-    """
-    머지 정렬 메인 함수
-    
-    Args:
-        arr: 정렬할 배열
-    
-    Returns:
-        정렬된 배열
-    """
-    if len(arr) > 1:
-        merge_sort_helper(arr, 0, len(arr) - 1)
-    return arr
 
+    if len(arr) == 1:
+        return arr
+    mid = len(arr)//2
+
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    result = []
+    i = 0
+    j =0
+    while len(left) ==i and len(right)==j:
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i +=1
+        else:
+            result.append(right[j])
+            j+=1
+    result += left[i:]
+    result += right[j:]
+
+
+    return result
 # 테스트 케이스
 if __name__ == "__main__":
     # 테스트 케이스 1
