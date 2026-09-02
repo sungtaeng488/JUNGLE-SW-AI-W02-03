@@ -40,9 +40,9 @@ def is_valid_parentheses(s):
     # TODO: 문자열의 각 문자를 순회
     ## : 여는 괄호 '('면 스택에 추가
     for ch in s:
-        if ch =="(":
-            stack.append(1)
-        else:
+        if ch == "(":
+            stack.push(1)
+        if ch == ")":
             if len(stack) == 0:
                 return False
             else:
@@ -50,7 +50,8 @@ def is_valid_parentheses(s):
     if len(stack) == 0:
         return True
     else:
-        return False 
+        return False
+            
             
         
 

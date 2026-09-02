@@ -144,12 +144,12 @@ def combinations(n: int, k: int) -> list:
         # TODO(Level 1): 아래 두 줄을 직접 작성하세요.
         if len(current_combination) == k:
             result.append(current_combination)
-            result 
-        for num in range(start,n+1):
-            current_combination.append(num)
-            backtrack(num+1,current_combination)
-            current_combination.pop()
+            return
 
+        for i in range(start,n+1):
+            current_combination.append(i)
+            backtrack(start +1 ,current_combination)
+            current_combination.pop()
         
         
         # TODO(Level 2): 아래 한 줄을 작성하세요.

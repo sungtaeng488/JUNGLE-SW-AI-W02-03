@@ -39,15 +39,14 @@ def process_print_queue(jobs):
     queue = deque(jobs)
 
     processed = []
-
-    while len(queue) != 0:
-        job = queue.popleft()
-
-        print(f"처리: {job}")
-
+    for ch in jobs:
+        job = queue.pop(0)
+        print(f"처리: {job} ")
         processed.append(job)
-
     return processed
+
+
+
 # 테스트 케이스
 if __name__ == "__main__":
     # 테스트 케이스 1

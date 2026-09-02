@@ -34,12 +34,10 @@ def bubble_sort(arr):
     """
     
     n = len(arr)
-    for i in range(n):
+    for i in range(n-1):
          for j in range(n-1):
-              if arr[j]>arr[j+1]:
-                   t = arr[j]
-                   arr[j] = arr[j+1]
-                   arr[j+1] = t
+            if arr[j] > arr[j+1]:
+                arr[j] , arr[j+1] = arr[j+1] , arr[j]
     return arr
               
     
@@ -56,14 +54,15 @@ def bubble_sort_optimized(arr):
     """
     n = len(arr)
     
-    for i in range(n):
-        swapped = False  # 교환 발생 여부
+    for i in range(n-1):
+        swapped = False
         for j in range(n-1):
-                    if arr[j]>arr[j+1] and swapped == False:
-                        arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                        swapped = True
+            if arr[j]>arr[j+1] and swapped == False:
+                swapped = True
+                arr[j] , arr[j+1] = arr[j+1], arr[j]
         if swapped == False:
-             break
+            break
+    return arr
                          
 
 
