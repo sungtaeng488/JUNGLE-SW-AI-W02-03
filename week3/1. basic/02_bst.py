@@ -50,13 +50,24 @@ def search_bst(root, target):
     Returns:
         True/False
     """
-    # TODO: root가 None이면 False 반환
-    pass
+    #베이스 케이스가 없나?
+    #그거는 또 아닌거같은데....
+    if root == None:
+        return False
+    if target == root.value:
+        return True
+    else:
+        if target < root.value:
+                return search_bst(root.left,target)
+        if target > root.value:
+            return search_bst(root.right,target)
+        
+            
+        return False
     
-    # TODO: 값을 찾으면 True 반환
-    ## target이 작으면 왼쪽 서브트리에서 검색
-    ## target이 크면 오른쪽 서브트리에서 검색
-    pass
+   
+
+    
 
 # 테스트 케이스
 if __name__ == "__main__":
