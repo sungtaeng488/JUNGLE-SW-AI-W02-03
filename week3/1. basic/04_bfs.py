@@ -45,24 +45,21 @@ def bfs(graph, start):
     """
     visited = []
     que = deque([])
-    #만약 그래프 맨 밑으로 가면?
-    if len(visited) == len(graph):
-        return visited
-    for i in range(len(graph)):
-        if len(que) == start:
-            que.append(start)
-        else:
-            # 근데 그 키 값들에 대한 value 값들을 다 뺴야하는데 어케 뺄ㄱ
-            # 만약 그 키에 대한 value값들이 이미 visited에 있으면 다음으로 넘어가고 그렇지 않으면 그 값들을 넣는다.
-            for ch in graph[i-1]:
-                if ch in que:
-                    continue
-                else:
-                    que.append(ch)
-    while len(que) != 0:
-        b = que.popleft()
-        visited.append(b)
+    que.append(start)
+    while len(que) !=0:
+        for ch in graph[que[0]]:
+            if ch in que or ch in visited:
+                continue
+            else:
+                que.append(ch)
+        a = que.popleft()
+        visited.append(a)
     return visited
+    
+
+    #그니깐 deque에다가 먼저 넣어놔 그리고 이제 그 다음 값에 또 차례대로 넣어 
+    
+    
 
         
 
