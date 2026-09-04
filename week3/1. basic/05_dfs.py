@@ -42,17 +42,24 @@ def dfs(graph, start, visited=None):
     Returns:
         방문 순서 리스트
     """
-    # TODO: visited가 None이면 초기화
-    pass
+    if visited is None:
+        visited = []
+    visited.append(start)
+    for i in graph[start]:
+        if i not in visited:
+            dfs(graph,i,visited)
+    return visited
+
+    # 현재 노드를 방문 한 것으로 표시한다.
+
+    # 방문한 표시가 되어 있지 않은 각각의 인접한 정점을 탐색한다.
+    #더 이상 방문하지 않은 정점이 없으면 이전 정점으로 역추적한다.
+    #모든 정점을 방문 할때할 때까지 프로세스를 반복한다.
     
-    # TODO: 현재 정점 방문
-    pass
-    
-    # TODO: 인접한 정점들에 대해 재귀
-    ## 방문하지 않은 정점이면 재귀 호출
-    pass
     
     return visited
+
+   
 
 # 테스트 케이스
 if __name__ == "__main__":
