@@ -41,51 +41,41 @@ class TreeNode:
 
 def preorder(root):
     """전위 순회: 루트 → 왼쪽 → 오른쪽"""
-    result= []
+    result = []
 
-    if root == None:
+    if root is  None:
         return []
     result.append(root.value)
-    result.extend(preorder(root.left))
-    result.extend(preorder(root.right))
+    result += preorder(root.left)
+    result += preorder(root.right)
 
+    return result
+    
 def inorder(root):
     """중위 순회: 왼쪽 → 루트 → 오른쪽"""
     result = []
     
-    # TODO: root가 None이면 빈 리스트 반환
-    if root == None:
+    if root is None:
         return []
-    
-    # TODO: 왼쪽 서브트리 순회
-    result.extend(inorder(root.left))
-    
-    # TODO: 루트 값 추가
+    result += inorder(root.left)
     result.append(root.value)
-    
-    # TODO: 오른쪽 서브트리 순회
-    result.extend(inorder(root.right))
+    result += inorder(root.right)
     
     return result
+    
 
 def postorder(root):
     """후위 순회: 왼쪽 → 오른쪽 → 루트"""
     result = []
-    
-    # TODO: root가 None이면 빈 리스트 반환
-    if root == None:
+    if root is None:
         return []
-    
-    # TODO: 왼쪽 서브트리 순회
-    result.extend(postorder(root.left))
-    
-    # TODO: 오른쪽 서브트리 순회
-    result.extend(postorder(root.right))
-    
-    # TODO: 루트 값 추가
+    result += postorder(root.left)
+    result += postorder(root.right)
     result.append(root.value)
-    
     return result
+
+    
+    
 
 # 테스트 케이스
 if __name__ == "__main__":
