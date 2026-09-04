@@ -44,18 +44,30 @@ def bfs(graph, start):
         방문 순서 리스트
     """
     visited = []
-    
-    # TODO: 큐 생성 및 시작 정점 추가
-    ## 방문한 정점 집합
-    pass
-
-    # TODO: 큐가 빌 때까지 반복
-    ## 큐에서 정점 꺼내기
-    ## 인접한 정점들 확인
-    ## 방문하지 않은 정점이면 큐에 추가
-    pass
-    
+    que = deque([])
+    #만약 그래프 맨 밑으로 가면?
+    if len(visited) == len(graph):
+        return visited
+    for i in range(len(graph)):
+        if len(que) == start:
+            que.append(start)
+        else:
+            # 근데 그 키 값들에 대한 value 값들을 다 뺴야하는데 어케 뺄ㄱ
+            # 만약 그 키에 대한 value값들이 이미 visited에 있으면 다음으로 넘어가고 그렇지 않으면 그 값들을 넣는다.
+            for ch in graph[i-1]:
+                if ch in que:
+                    continue
+                else:
+                    que.append(ch)
+    while len(que) != 0:
+        b = que.popleft()
+        visited.append(b)
     return visited
+
+        
+
+
+    
 
 # 테스트 케이스
 if __name__ == "__main__":
