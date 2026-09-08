@@ -22,26 +22,21 @@
 - 이전 회의가 끝난 후에 시작하는 회의만 선택
 """
 
-
 def select_meetings(meetings):
     if len(meetings) == 0:
-        return 0, []
-
-    meetings.sort(key=lambda x: x[1])
+        return 0,[]
+    meetings.sort(key = lambda x:x[1])
 
     selected = []
     selected.append(meetings[0])
-
     end_time = meetings[0][1]
-
     for meeting in meetings[1:]:
         start_time = meeting[0]
-
         if start_time >= end_time:
             selected.append(meeting)
             end_time = meeting[1]
 
-    return len(selected), selected
+    return len(selected) , selected
 # 테스트 케이스
 if __name__ == "__main__":
     # 테스트 케이스 1

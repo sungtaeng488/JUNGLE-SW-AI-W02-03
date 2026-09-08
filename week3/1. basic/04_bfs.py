@@ -52,10 +52,9 @@ def bfs(graph, start):
                 continue
             else:
                 que.append(ch)
-        a = que.popleft()
+        a =que.popleft()
         visited.append(a)
     return visited
-    
 
     #그니깐 deque에다가 먼저 넣어놔 그리고 이제 그 다음 값에 또 차례대로 넣어 
     

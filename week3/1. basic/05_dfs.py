@@ -44,11 +44,11 @@ def dfs(graph, start, visited=None):
     """
     if visited is None:
         visited = []
-    visited.append(start)
-    for i in graph[start]:
-        if i not in visited:
-            dfs(graph,i,visited)
-    return visited
+        visited .append(start)
+        for i in graph[start]:
+            if i not in visited:
+                dfs(graph,i,visited)
+        return visited
 
     # 현재 노드를 방문 한 것으로 표시한다.
 

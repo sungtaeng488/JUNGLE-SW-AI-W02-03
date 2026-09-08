@@ -42,14 +42,13 @@ class TreeNode:
 def preorder(root):
     """전위 순회: 루트 → 왼쪽 → 오른쪽"""
     result = []
-
-    if root is  None:
+    if root is None:
         return []
     result.append(root.value)
-    result += preorder(root.left)
-    result += preorder(root.right)
-
+    result.extend(preorder(root.left))
+    result.extend(preorder(root.right))
     return result
+
     
 def inorder(root):
     """중위 순회: 왼쪽 → 루트 → 오른쪽"""

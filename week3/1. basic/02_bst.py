@@ -52,18 +52,18 @@ def search_bst(root, target):
     """
     #베이스 케이스가 없나?
     #그거는 또 아닌거같은데....
-    if root == None:
+    if root is None:
         return False
-    if target == root.value:
+    if root.value == target:
         return True
     else:
-        if target < root.value:
-                return search_bst(root.left,target)
-        if target > root.value:
+        if root.value > target:
+            return search_bst(root.left,target)
+        if root.value < target:
             return search_bst(root.right,target)
-        
-            
+
         return False
+
     
    
 
