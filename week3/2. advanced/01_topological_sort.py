@@ -43,30 +43,24 @@ def topological_sort(vertices, edges):
     b = {}
     for i in range(vertices):
         a[i] = []
-        b[i] = 0
-
-    for start , end in edges:
+        b[i] = 0 
+    for start,end in edges:
         a[start].append(end)
         b[end] +=1
 
     que = deque()
-
     for i , j in b.items():
-        if j == 0 :
+        if j ==0 :
             que.append(i)
-
-    result = []
-
+    result =[]
     while que:
         current = que.popleft()
         result.append(current)
         for next in a[current]:
             b[next] -=1
-
             if b[next] == 0:
                 que.append(next)
-    return result   
-    
+    return result
 
             
 
