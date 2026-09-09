@@ -56,13 +56,12 @@ def search_bst(root, target):
         return False
     if root.value == target:
         return True
-    else:
-        if root.value > target:
-            return search_bst(root.left,target)
-        if root.value < target:
-            return search_bst(root.right,target)
+    if root.value > target:
+        return search_bst(root.left,target)
+    if root.value < target:
+        return search_bst(root.right,target)
 
-        return False
+    return False
 
     
    

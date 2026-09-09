@@ -31,24 +31,16 @@ DFS: [0, 1, 2, 3] (순서는 구현에 따라 다를 수 있음)
 """
 
 def dfs(graph, start, visited=None):
-    """
-    깊이 우선 탐색 (재귀)
-    
-    Args:
-        graph: 그래프 딕셔너리
-        start: 현재 정점
-        visited: 방문 리스트
-    
-    Returns:
-        방문 순서 리스트
-    """
     if visited is None:
         visited = []
-        visited .append(start)
-        for i in graph[start]:
-            if i not in visited:
-                dfs(graph,i,visited)
-        return visited
+
+    visited.append(start)
+
+    for i in graph[start]:
+        if i not in visited:
+            dfs(graph, i, visited)
+
+    return visited
 
     # 현재 노드를 방문 한 것으로 표시한다.
 
@@ -57,7 +49,6 @@ def dfs(graph, start, visited=None):
     #모든 정점을 방문 할때할 때까지 프로세스를 반복한다.
     
     
-    return visited
 
    
 

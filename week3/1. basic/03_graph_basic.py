@@ -51,8 +51,6 @@ def create_graph(vertices, edges, directed=False):
         if not directed:
             dic[edges[i][1]].append(edges[i][0])
     return dic
-        
-    
 
         
 
